@@ -1,11 +1,11 @@
 const mongoose = require('mongoose')
 
 const CommentSchema = new mongoose.Schema({
-  author: {
+  user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'users'
   },
-  recpient: {
+  recipient: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'users'
   },
