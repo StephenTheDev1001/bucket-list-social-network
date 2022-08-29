@@ -8,10 +8,10 @@ const User = require('../models/User')
 
 //@route    GET api/comments
 //@desc     Get all logged in user comments
-//@access   Private
-router.get('/', auth, async (req, res) => {
+//@access   Public
+router.get('/', async (req, res) => {
   try {
-    const comments = await Comment.find({ user: req.user.id }).sort({ date: -1 })
+    const comments = await Comment.find({ recipient: req.user.id }).sort({ date: -1 })
     res.json(comments)
   } catch (err) {
     console.error(err.message)
