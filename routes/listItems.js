@@ -6,9 +6,9 @@ const { check, validationResult } = require('express-validator')
 const ListItem = require('../models/ListItem')
 
 // @route     Get api/listItems
-// @desc      Get all list items
+// @desc      Get all user list items
 // @access    Public
-router.get('/', async (req, res) => {
+router.get('/', auth, async (req, res) => {
   try {
     const listItems = await ListItem.find({ user: req.user.id }).sort({ date: -1 })
 
@@ -54,10 +54,12 @@ router.post(
 // @desc      Update list item
 // @access    Private
 router.put('/:id', auth, async (req, res) => {
-  const { content } = req.body
+  const { content, completed } = req.body
 
   const listItemFields = {}
   if (content) listItemFields.content = content
+  if (completed === false) listItemFields.completed = completed
+  if (completed) listItemFields.completed = completed
 
   try {
     let listItem = await ListItem.findById(req.params.id)
