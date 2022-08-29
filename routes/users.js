@@ -5,6 +5,8 @@ const jwt = require('jsonwebtoken')
 require('dotenv').config()
 const { check, validationResult } = require('express-validator')
 
+const User = require('../models/User')
+
 // @route     POST api/users
 // @desc      Regiter a user
 // @access    Public
