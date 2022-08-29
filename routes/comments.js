@@ -3,10 +3,13 @@ const router = express.Router()
 const auth = require('../middleware/auth')
 const { check, validationResult } = require('express-validator')
 
+const Comment = require('../models/Comment')
+const User = require('../models/User')
+
 //@route    GET api/comments
-//@desc     Get all user comments
-//@access   Public
-router.get('/', async (req, res) => {
+//@desc     Get all logged in user comments
+//@access   Private
+router.get('/', auth, async (req, res) => {
   try {
     const comments = await Comment.find({ user: req.user.id }).sort({ date: -1 })
     res.json(comments)
@@ -15,6 +18,7 @@ router.get('/', async (req, res) => {
     res.status(500).send('Server Error')
   }
 })
+
 
 //@route    POST api/comments
 //@desc     Add new comment
@@ -32,10 +36,11 @@ router.post(
     const { content, recipient } = req.body
 
     try {
+      r = await User.findById(recipient)
       const newComment = new Comment({
         content,
         user: req.user.id,
-        recipient
+        recipient: r
       })
 
       const comment = await newComment.save()
