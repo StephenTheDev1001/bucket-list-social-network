@@ -6,7 +6,7 @@ const { check, validationResult } = require('express-validator')
 const ListItem = require('../models/ListItem')
 
 // @route     Get api/listItems
-// @desc      Get all user list items
+// @desc      Get all user's list items
 // @access    Public
 router.get('/', auth, async (req, res) => {
   try {

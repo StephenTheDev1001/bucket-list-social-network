@@ -19,7 +19,6 @@ router.get('/', async (req, res) => {
   }
 })
 
-
 //@route    POST api/comments
 //@desc     Add new comment
 //@access   Private
