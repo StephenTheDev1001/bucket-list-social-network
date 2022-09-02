@@ -1,12 +1,16 @@
 import PropTypes from 'prop-types'
-import { Link } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
 import setAuthToken from '../../utils/setAuthToken'
+import { useAuth } from '../../context/auth/AuthState'
+import { logout } from '../../context/auth/authActions'
 
 const Navbar = ({ title, icon }) => {
+  // Auth State
+  const [authState, authDispatch] = useAuth()
+  const { isAuthenticated } = authState
 
   const onLogout = () => {
-    setAuthToken(null)
-    console.log('logout')
+    logout(authDispatch)
   }
 
   const authLinks = (
@@ -32,13 +36,13 @@ const Navbar = ({ title, icon }) => {
   )
 
   return (
-    <div className='navbar bg-primary'>
+    <div className='flex'>
       <h1>
         <Link to='/'>
           <i className={icon} /> {title}
         </Link>
       </h1>
-      <ul>{guestLinks}</ul>
+      <ul>{isAuthenticated ? authLinks : guestLinks}</ul>
     </div>
   )
 }
