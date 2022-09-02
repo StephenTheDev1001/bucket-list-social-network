@@ -1,6 +1,10 @@
+import { useAuth } from "../../context/auth/AuthState"
+
 const Dashboard = () => {
+  const [authState, authDispatch] = useAuth()
+  const { user } = authState
   return (
-    <div>Dashboard Page</div>
+    <div>Hello {user.name}</div>
   )
 }
 export default Dashboard

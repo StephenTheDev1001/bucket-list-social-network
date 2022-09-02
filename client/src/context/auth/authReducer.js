@@ -18,6 +18,7 @@ const authReducer = (state, action) => {
         loading: false,
         user: action.payload
       };
+    case REGISTER_SUCCESS:
     case LOGIN_SUCCESS:
       return {
         ...state,
@@ -25,6 +26,7 @@ const authReducer = (state, action) => {
         isAuthenticated: true,
         loading: false
       };
+    case REGISTER_FAIL:
     case AUTH_ERROR:
     case LOGIN_FAIL:
       return {

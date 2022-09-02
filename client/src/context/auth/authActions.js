@@ -24,6 +24,24 @@ export const loadUser = async (dispatch) => {
     dispatch({ type: AUTH_ERROR })
   }
 }
+
+// Register User
+export const register = async (dispatch, formData) => {
+  try {
+    const res = await axios.post('/api/users', formData)
+
+    dispatch({
+      type: REGISTER_SUCCESS,
+      payload: res.data
+    })
+  } catch (err) {
+    dispatch({
+      type: REGISTER_FAIL,
+      payload: err.response.data.msg
+    });
+  }
+}
+
 // Login User
 export const login = async (dispatch, formData) => {
   try {
