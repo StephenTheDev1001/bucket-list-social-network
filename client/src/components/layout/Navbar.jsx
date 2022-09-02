@@ -3,22 +3,29 @@ import { Link, Navigate } from 'react-router-dom'
 import setAuthToken from '../../utils/setAuthToken'
 import { useAuth } from '../../context/auth/AuthState'
 import { logout } from '../../context/auth/authActions'
+import { clearListItems } from '../../context/listItem/listItemActions'
+import { useListItem } from '../../context/listItem/ListItemState'
 
 const Navbar = ({ title, icon }) => {
   // Auth State
   const [authState, authDispatch] = useAuth()
-  const { isAuthenticated } = authState
+  const { isAuthenticated, user } = authState
+
+  // List Item State
+  const listItemDispatch = useListItem()[1]
 
   const onLogout = () => {
     logout(authDispatch)
+    clearListItems(listItemDispatch)
   }
+
 
   const authLinks = (
     <>
-      <li>Hello</li>
-      <li>
+      <li className='p-3'>Hello {user && user.name}</li>
+      <li className='p-3'>
         <Link onClick={onLogout} to='/login'>
-          <span className='hide-sm'>Logout</span>
+          <span>Logout</span>
         </Link>
       </li>
     </>
@@ -26,23 +33,23 @@ const Navbar = ({ title, icon }) => {
 
   const guestLinks = (
     <>
-      <li>
+      <li className='p-3'>
         <Link to='/register'>Register</Link>
       </li>
-      <li>
+      <li className='p-3'>
         <Link to='/login'>Login</Link>
       </li>
     </>
   )
 
   return (
-    <div className='flex'>
+    <div className='flex justify-between bg-primary text-3xl'>
       <h1>
         <Link to='/'>
-          <i className={icon} /> {title}
+          <h1 className='p-3'>BucketList Network</h1>
         </Link>
       </h1>
-      <ul>{isAuthenticated ? authLinks : guestLinks}</ul>
+      <ul className='flex'>{isAuthenticated ? authLinks : guestLinks}</ul>
     </div>
   )
 }

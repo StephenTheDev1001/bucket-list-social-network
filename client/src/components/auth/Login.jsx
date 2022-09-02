@@ -34,12 +34,12 @@ const Login = () => {
 
   if (isAuthenticated) { return <Navigate to="/" /> }
   return (
-    <div className='form-container'>
-      <h1>
+    <div className='form-container flex flex-col justify-center h-screen items-center'>
+      <h1 className='text-3xl'>
         Account <span className='text-primary'>Login</span>
       </h1>
       <form onSubmit={onSubmit}>
-        <div className='form-group'>
+        <div className={formGroup}>
           <label htmlFor='email'>Email Address</label>
           <input
             id='email'
@@ -47,10 +47,11 @@ const Login = () => {
             name='email'
             value={email}
             onChange={onChange}
+            className='border border-black'
             required
           />
         </div>
-        <div className='form-group'>
+        <div className={formGroup}>
           <label htmlFor='password'>Password</label>
           <input
             id='password'
@@ -58,16 +59,21 @@ const Login = () => {
             name='password'
             value={password}
             onChange={onChange}
+            className='border border-black'
             required
           />
         </div>
         <input
           type='submit'
           value='Login'
-          className='btn btn-primary btn-block'
+          className='border w-full border-secondary bg-secondary text-white px-4 py-2 rounded-md'
         />
       </form>
     </div>
   );
 }
+
+// formGroup styling
+const formGroup = 'flex flex-col mb-4'
+
 export default Login

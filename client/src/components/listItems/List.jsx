@@ -1,6 +1,24 @@
-const List = () => {
+import { useEffect } from 'react'
+import ListItem from './ListItem'
+import { useListItem } from '../../context/listItem/ListItemState'
+import { getListItems } from '../../context/listItem/listItemActions'
+
+const List = (props) => {
+  const [listItemState, listItemDispatch] = useListItem()
+
+  // destructuring
+  const { listItems } = listItemState
+
+  useEffect(() => {
+    getListItems(listItemDispatch)
+  }, [listItemDispatch])
+
+
+
   return (
-    <div>List Component</div>
+    listItems.map(listItem => {
+      return <ListItem listItem={listItem} />
+    })
   )
 }
 export default List
