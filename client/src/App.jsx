@@ -7,6 +7,7 @@ import PrivateRoute from './components/routing/PrivateRoute'
 import Register from './components/auth/Register'
 import AuthState from './context/auth/AuthState'
 import ListItemState from './context/listItem/ListItemState'
+import User from './components/pages/User'
 
 
 
@@ -23,6 +24,7 @@ function App() {
                 <Route path="/" element={<PrivateRoute component={Dashboard} />} />
                 <Route path="login" element={<Login />} />
                 <Route path="register" element={<Register />} />
+                <Route path='users/:id' element={<User />} />
               </Routes>
             </div>
           </>

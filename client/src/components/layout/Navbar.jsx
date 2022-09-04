@@ -22,7 +22,9 @@ const Navbar = ({ title, icon }) => {
 
   const authLinks = (
     <>
-      <li className='p-3'>Hello {user && user.name}</li>
+      <li className='p-3'>
+        <Link to='/'>Dashboard</Link>
+      </li>
       <li className='p-3'>
         <Link onClick={onLogout} to='/login'>
           <span>Logout</span>

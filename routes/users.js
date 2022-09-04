@@ -7,11 +7,11 @@ const { check, validationResult } = require('express-validator')
 
 const User = require('../models/User')
 
-// @route     GET api/users/:num
+// @route     GET api/users/rand/:num
 // @desc      find random users, not including email and password
 // @access    Public
 router.get(
-  '/:num',
+  '/rand/:num',
   async (req, res) => {
     try {
       const num = req.params.num

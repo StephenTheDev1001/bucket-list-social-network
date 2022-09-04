@@ -7,10 +7,24 @@ const ListItem = require('../models/ListItem')
 
 // @route     Get api/listItems
 // @desc      Get all user's list items
-// @access    Public
+// @access    Private
 router.get('/', auth, async (req, res) => {
   try {
     const listItems = await ListItem.find({ user: req.user.id }).sort({ date: -1 })
+
+    res.json(listItems)
+  } catch (err) {
+    console.error(err.message)
+    res.status(500).send('Server Error')
+  }
+})
+
+// @route     Get api/listItems/:id
+// @desc      Get all user's list items
+// @access    Public
+router.get('/:id', async (req, res) => {
+  try {
+    const listItems = await ListItem.find({ user: req.params.id }).sort({ date: -1 })
 
     res.json(listItems)
   } catch (err) {

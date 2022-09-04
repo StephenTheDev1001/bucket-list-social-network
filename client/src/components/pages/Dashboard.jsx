@@ -9,7 +9,7 @@ const Dashboard = () => {
       <div className="flex-col flex items-center p-10">
         <div className="flex flex-col">
           <ListItemForm />
-          <List />
+          <List authenticated={true} />
         </div>
         <MeetNew />
       </div>
