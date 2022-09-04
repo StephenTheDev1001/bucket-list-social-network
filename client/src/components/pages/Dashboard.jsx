@@ -1,14 +1,17 @@
-import { useAuth } from "../../context/auth/AuthState"
 import ListItemForm from "../listItems/ListItemForm"
 import List from "../listItems/List"
+import MeetNew from "../meetNew/MeetNew"
 
 const Dashboard = () => {
 
   return (
-    <div className="dashboard-container flex flex-col justify-center items-center h-screen">
-      <div className="form-container flex-col flex justify-start">
-        <ListItemForm />
-        <List />
+    <div className="dashboard-container flex flex-col justify-center items-center h-auto">
+      <div className="flex-col flex items-center p-10">
+        <div>
+          <ListItemForm />
+          <List />
+        </div>
+        <MeetNew />
       </div>
     </div>
   )

@@ -16,9 +16,11 @@ const List = (props) => {
 
 
   return (
-    listItems.map(listItem => {
-      return <ListItem key={listItem && listItem._id} listItem={listItem} />
-    })
+    <>
+      {listItems.map(listItem => {
+        return <ListItem key={listItem && listItem._id} listItem={listItem} />
+      })}
+    </>
   )
 }
 export default List

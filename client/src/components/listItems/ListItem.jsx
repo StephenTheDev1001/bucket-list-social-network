@@ -16,9 +16,9 @@ const ListItem = ({ listItem }) => {
 
   }
 
+  // Updates listItem "completed" boolean
   const onChange = (e) => {
     updateListItem(listItemDispatch, { ...listItem, completed: e.target.checked })
-    console.log(e.target.checked)
   }
 
   // dynamic line-through style
