@@ -17,7 +17,7 @@ const List = (props) => {
 
   return (
     listItems.map(listItem => {
-      return <ListItem listItem={listItem} />
+      return <ListItem key={listItem && listItem._id} listItem={listItem} />
     })
   )
 }

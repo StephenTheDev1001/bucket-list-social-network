@@ -5,11 +5,9 @@ import List from "../listItems/List"
 const Dashboard = () => {
 
   return (
-    <div className="dashboard-container">
-      <div className="form-container">
+    <div className="dashboard-container flex flex-col justify-center items-center h-screen">
+      <div className="form-container flex-col flex justify-start">
         <ListItemForm />
-      </div>
-      <div>
         <List />
       </div>
     </div>

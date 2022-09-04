@@ -39,7 +39,7 @@ const listItemReducer = (state, action) => {
     case CLEAR_LISTITEMS:
       return {
         ...state,
-        listItems: null,
+        listItems: [],
         error: null,
       }
     case CLEAR_CURRENT:

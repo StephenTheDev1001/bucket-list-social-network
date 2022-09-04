@@ -22,7 +22,6 @@ export const addListItem = async (dispatch, listItem) => {
 export const getListItems = async (dispatch) => {
   try {
     const res = await axios.get('/api/listItems')
-    console.log(res.data)
     dispatch({ type: GET_LISTITEMS, payload: res.data })
   } catch (err) {
     dispatch({ type: LISTITEM_ERROR, payload: err.response.data.msg })

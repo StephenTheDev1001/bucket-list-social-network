@@ -7,6 +7,22 @@ const { check, validationResult } = require('express-validator')
 
 const User = require('../models/User')
 
+// @route     GET api/users/:num
+// @desc      find random users, not including email and password
+// @access    Public
+router.get(
+  '/:num',
+  async (req, res) => {
+    try {
+      const num = req.params.num
+      const users = await User.aggregate([{ $sample: { size: parseInt(num) } }, { $project: { email: 0 } }, { $project: { password: 0 } }])
+      res.json(users)
+    } catch (err) {
+      console.error(err.message)
+      res.status(500).send('Server Error')
+    }
+  })
+
 // @route     POST api/users
 // @desc      Regiter a user
 // @access    Public
