@@ -11,6 +11,7 @@ const ListItemForm = () => {
   const onSubmit = (e) => {
     e.preventDefault()
     addListItem(listItemDispatch, { content })
+    setContent('')
   }
 
   const onChange = (e) => {
@@ -19,8 +20,8 @@ const ListItemForm = () => {
 
   return (
     <form onSubmit={onSubmit}>
-      <input type="text" placeholder='Before I die I want to..' onChange={onChange} className='border border-black rounded-md p-2 m-1' />
-      <input type="submit" value="Add" className='border border-black rounded-md p-2 m-1' />
+      <input type="text" placeholder='Before I die I want to..' onChange={onChange} value={content} className='border border-black rounded-md p-2 m-1' />
+      <input type="submit" value='Add' className='border border-black rounded-md p-2 m-1' />
     </form>
   )
 }

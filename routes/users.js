@@ -23,6 +23,22 @@ router.get(
     }
   })
 
+// @route     GET api/users/:id
+// @desc      find a user by id, not including email and password
+// @access    Public
+router.get(
+  '/:id',
+  async (req, res) => {
+    try {
+      const user = await User.findById(req.params.id).select('-email -password')
+      res.json(user)
+    } catch (err) {
+      console.error(err.message)
+      res.status(500).send('Server Error')
+    }
+  }
+)
+
 // @route     POST api/users
 // @desc      Regiter a user
 // @access    Public

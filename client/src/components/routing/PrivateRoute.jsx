@@ -6,7 +6,7 @@ const PrivateRoute = ({ component: Component }) => {
   const [authState] = useAuth()
   const { isAuthenticated, loading } = authState
 
-  // if (loading) { return <Spinner /> }
+  if (loading) { return <Spinner /> }
   if (isAuthenticated) return <Component />
 
   return <Navigate to="/login" />
