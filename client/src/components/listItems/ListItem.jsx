@@ -24,7 +24,7 @@ const ListItem = ({ listItem }) => {
   // dynamic line-through style
   const completionStyle = completed ? { textDecoration: "line-through" } : {}
   return (
-    <div className="flex p-2 m-1 items-center" key={_id} >
+    <div className="flex p-2 m-1 items-center max-w-screen-sm" key={_id} >
       <input type="checkbox" onChange={onChange} checked={completed} className='p-2' />
       <h3 style={completionStyle} className='p-2'>{content}</h3>
       <button onClick={onDelete} className='p-2 ml-auto border border-black rounded-md'>Delete</button>

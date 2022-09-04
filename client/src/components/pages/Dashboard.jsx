@@ -7,7 +7,7 @@ const Dashboard = () => {
   return (
     <div className="dashboard-container flex flex-col justify-center items-center h-auto">
       <div className="flex-col flex items-center p-10">
-        <div>
+        <div className="flex flex-col">
           <ListItemForm />
           <List />
         </div>

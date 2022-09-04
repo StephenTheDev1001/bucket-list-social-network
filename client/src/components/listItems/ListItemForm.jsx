@@ -19,7 +19,7 @@ const ListItemForm = () => {
   }
 
   return (
-    <form onSubmit={onSubmit}>
+    <form onSubmit={onSubmit} className='self-center'>
       <input type="text" placeholder='Before I die I want to..' onChange={onChange} value={content} className='border border-black rounded-md p-2 m-1' />
       <input type="submit" value='Add' className='border border-black rounded-md p-2 m-1' />
     </form>
