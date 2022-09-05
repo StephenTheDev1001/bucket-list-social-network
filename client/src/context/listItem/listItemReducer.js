@@ -19,7 +19,7 @@ const listItemReducer = (state, action) => {
     case ADD_LISTITEM:
       return {
         ...state,
-        listItems: [...state.listItems, action.payload]
+        listItems: [action.payload, ...state.listItems]
       }
     case UPDATE_LISTITEM:
       return {

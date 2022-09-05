@@ -18,34 +18,34 @@ const Navbar = ({ title, icon }) => {
     logout(authDispatch)
     clearListItems(listItemDispatch)
   }
-
+  const linkSyles = 'p-3'
 
   const authLinks = (
-    <>
-      <li className='p-3'>
+    <div className='flex pr-3'>
+      <li className={linkSyles}>
         <Link to='/'>Dashboard</Link>
       </li>
-      <li className='p-3'>
+      <li className={linkSyles}>
         <Link onClick={onLogout} to='/login'>
           <span>Logout</span>
         </Link>
       </li>
-    </>
+    </div>
   )
 
   const guestLinks = (
-    <>
-      <li className='p-3'>
+    <div className='flex pr-3'>
+      <li className={linkSyles}>
         <Link to='/register'>Register</Link>
       </li>
-      <li className='p-3'>
+      <li className={linkSyles}>
         <Link to='/login'>Login</Link>
       </li>
-    </>
+    </div>
   )
 
   return (
-    <div className='flex justify-between bg-primary text-3xl'>
+    <div className='flex justify-between bg-primary sm:text-3xl'>
       <h1>
         <Link to='/'>
           <h1 className='p-3'>BucketList Network</h1>
