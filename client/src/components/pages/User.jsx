@@ -17,16 +17,30 @@ const User = () => {
   // destucture
   const { listItems } = userInfo
 
-  useEffect(() => async () => {
-    try {
-      if (id) {
+  // useEffect(() => async () => {
+  //   try {
+  //     if (id) {
+  //       const res2 = await axios.get(`/api/listItems/${id}`)
+  //       setUserInfo({ listItems: res2.data })
+  //       console.log(id)
+  //     }
+  //   } catch (err) {
+  //     console.error(err)
+  //   }
+  // }, [id])
+
+
+  useEffect(() => {
+    const getComments = async () => {
+      try {
         const res2 = await axios.get(`/api/listItems/${id}`)
         setUserInfo({ listItems: res2.data })
         console.log(id)
+      } catch (err) {
+        console.error(err)
       }
-    } catch (err) {
-      console.error(err)
     }
+    getComments()
   }, [id])
 
   return (

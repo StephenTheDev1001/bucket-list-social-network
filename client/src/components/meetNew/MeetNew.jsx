@@ -7,14 +7,17 @@ const MeetNew = () => {
   const { id } = useParams()
 
   // gets 5 random users 
-  useEffect(() => async () => {
-    try {
-      const res = await axios.get('/api/users/rand/5')
-      setUsers(res.data)
-    } catch (err) {
-      console.error(err)
+  useEffect(() => {
+    const rand5 = async () => {
+      try {
+        const res = await axios.get('/api/users/rand/5')
+        setUsers(res.data)
+      } catch (err) {
+        console.error(err)
+      }
     }
-  }, [])
+    rand5()
+  }, [id])
 
   return (
     <div className='flex flex-col w-max text-center p-3 items-center'>

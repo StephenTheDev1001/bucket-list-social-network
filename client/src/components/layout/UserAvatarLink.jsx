@@ -5,13 +5,17 @@ import axios from "axios"
 const UserAvatarLink = ({ userId }) => {
   const [user, setUser] = useState({})
 
-  useEffect(() => async () => {
-    try {
-      const res = await axios.get(`/api/users/${userId}`)
-      setUser(res.data)
-    } catch (err) {
-      console.error(err)
+  useEffect(() => {
+    const getUser = async () => {
+      try {
+        const res = await axios.get(`/api/users/${userId}`)
+        setUser(res.data)
+        console.log('render')
+      } catch (err) {
+        console.error(err)
+      }
     }
+    getUser()
   }, [userId])
 
   return (
