@@ -3,34 +3,58 @@ import { useParams } from "react-router-dom"
 import axios from 'axios'
 import ListItem from '../listItems/ListItem'
 import MeetNew from '../meetNew/MeetNew'
+import CommentForm from '../comments/CommentForm'
+import Comments from '../comments/Comments'
+import UserAvatarLink from '../layout/UserAvatarLink'
 
 const User = () => {
-  const [userInfo, setUserInfo] = useState({})
-  const [listItems, setListItems] = useState([])
   const { id } = useParams()
+  const [userInfo, setUserInfo] = useState({
+    user: {},
+    listItems: []
+  })
 
-  // get user info
-  useEffect(() => async () => {
+  // destucture
+  const { listItems } = userInfo
+
+  // useEffect(() => async () => {
+  //   try {
+  //     if (id) {
+  //       const res2 = await axios.get(`/api/listItems/${id}`)
+  //       setUserInfo({ listItems: res2.data })
+  //       console.log('render')
+  //     }
+  //   } catch (err) {
+  //     console.error(err)
+  //   }
+  // }, [id])
+
+  const onClick = async () => {
     try {
-      const res = await axios.get(`/api/users/${id}`)
-      const res2 = await axios.get(`/api/listItems/${id}`)
-      setUserInfo(res.data)
-      setListItems(res2.data)
+      if (id) {
+        const res2 = await axios.get(`/api/listItems/${id}`)
+        setUserInfo({ listItems: res2.data })
+        console.log('render')
+      }
     } catch (err) {
       console.error(err)
     }
-  }, [userInfo, listItems])
-
+  }
 
   return (
     <section className='flex flex-col items-center'>
-      <h1 className='text-3xl'>{userInfo.name}'s Bucket List</h1>
+
+      <UserAvatarLink userId={id} />
       <div>
         {listItems.map(listItem => {
-          return <ListItem authenticated={false} key={listItem && listItem._id} listItem={listItem} />
+          return <ListItem authenticated={false} key={listItems && listItem._id} listItem={listItem} />
         })}
       </div>
-      <MeetNew />
+      <Comments id={id} />
+      <div onClick={onClick}>
+        <MeetNew />
+      </div>
+
     </section>
   )
 }

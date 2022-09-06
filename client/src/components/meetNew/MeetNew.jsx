@@ -22,7 +22,7 @@ const MeetNew = () => {
       <div className='meetNew-container w-max flex flex-col pt-3 sm:flex-row'>
         {users.map(user => {
           return (
-            <UserAvatarLink user={user} key={user._id} />
+            <UserAvatarLink userId={user._id} key={user._id} />
           )
         })}
       </div>

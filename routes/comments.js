@@ -6,12 +6,12 @@ const { check, validationResult } = require('express-validator')
 const Comment = require('../models/Comment')
 const User = require('../models/User')
 
-//@route    GET api/comments
-//@desc     Get all logged in user comments
+//@route    GET api/comments/user:id
+//@desc     Get a user's comments
 //@access   Public
-router.get('/', async (req, res) => {
+router.get('/user/:id', async (req, res) => {
   try {
-    const comments = await Comment.find({ recipient: req.user.id }).sort({ date: -1 })
+    const comments = await Comment.find({ recipient: req.params.id }).sort({ date: -1 })
     res.json(comments)
   } catch (err) {
     console.error(err.message)
@@ -63,7 +63,7 @@ router.delete('/:id', auth, async (req, res) => {
     }
 
     if (comment.user.toString() !== req.user.id && comment.recipient.toString() !== req.user.id) {
-      return res.status(401).json({ msg: 'User not authorized' })
+      return res.status(401).json({ msg: 'User not authorized to delete' })
     }
 
     await Comment.findByIdAndRemove(req.params.id)

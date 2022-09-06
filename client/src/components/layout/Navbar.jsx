@@ -48,7 +48,7 @@ const Navbar = ({ title, icon }) => {
     <div className='flex justify-between bg-primary sm:text-3xl'>
       <h1>
         <Link to='/'>
-          <h1 className='p-3'>BucketList Network</h1>
+          <h1 className='p-3'>BucketList Babies</h1>
         </Link>
       </h1>
       <ul className='flex'>{isAuthenticated ? authLinks : guestLinks}</ul>

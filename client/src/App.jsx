@@ -17,17 +17,15 @@ function App() {
     <AuthState>
       <ListItemState>
         <Router>
-          <>
-            <Navbar />
-            <div className="App">
-              <Routes>
-                <Route path="/" element={<PrivateRoute component={Dashboard} />} />
-                <Route path="login" element={<Login />} />
-                <Route path="register" element={<Register />} />
-                <Route path='users/:id' element={<User />} />
-              </Routes>
-            </div>
-          </>
+          <Navbar />
+          <div className="App">
+            <Routes>
+              <Route exact path="/" element={<PrivateRoute component={Dashboard} />} />
+              <Route exact path="login" element={<Login />} />
+              <Route exact path="register" element={<Register />} />
+              <Route exact path='users/:id' element={<User />} />
+            </Routes>
+          </div>
         </Router>
       </ListItemState>
     </AuthState>
