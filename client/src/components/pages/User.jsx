@@ -17,29 +17,17 @@ const User = () => {
   // destucture
   const { listItems } = userInfo
 
-  // useEffect(() => async () => {
-  //   try {
-  //     if (id) {
-  //       const res2 = await axios.get(`/api/listItems/${id}`)
-  //       setUserInfo({ listItems: res2.data })
-  //       console.log('render')
-  //     }
-  //   } catch (err) {
-  //     console.error(err)
-  //   }
-  // }, [id])
-
-  const onClick = async () => {
+  useEffect(() => async () => {
     try {
       if (id) {
         const res2 = await axios.get(`/api/listItems/${id}`)
         setUserInfo({ listItems: res2.data })
-        console.log('render')
+        console.log(id)
       }
     } catch (err) {
       console.error(err)
     }
-  }
+  }, [id])
 
   return (
     <section className='flex flex-col items-center'>
@@ -51,10 +39,7 @@ const User = () => {
         })}
       </div>
       <Comments id={id} />
-      <div onClick={onClick}>
-        <MeetNew />
-      </div>
-
+      <MeetNew />
     </section>
   )
 }
