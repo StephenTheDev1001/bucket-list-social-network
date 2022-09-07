@@ -18,7 +18,7 @@ const Navbar = ({ title, icon }) => {
     logout(authDispatch)
     clearListItems(listItemDispatch)
   }
-  const linkSyles = 'p-3'
+  const linkSyles = 'p-3 hover:bg-secondary hover:text-white'
 
   const authLinks = (
     <div className='flex pr-3'>

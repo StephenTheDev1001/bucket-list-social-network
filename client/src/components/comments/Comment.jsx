@@ -15,13 +15,13 @@ const Comment = ({ comment, onDelete }) => {
   }
 
   return (
-    <div className='flex items-center p-3'>
+    <div className='flex items-center p-3 border'>
       <UserAvatarLink userId={comment && comment.user} />
-      <p>{comment.content}</p>
+      <p className="p-3">{comment.content}</p>
       {authorizedToDelete() &&
         <button
           onClick={onClick}
-          className='bg-danger p-2 rounded-lg text-white h-1/3'
+          className='bg-danger p-2 rounded-lg text-white h-1/3 ml-auto'
         >
           Delete</button>
       }
