@@ -31,16 +31,15 @@ const User = () => {
 
 
   useEffect(() => {
-    const getComments = async () => {
+    const getListItems = async () => {
       try {
         const res2 = await axios.get(`/api/listItems/${id}`)
         setUserInfo({ listItems: res2.data })
-        console.log(id)
       } catch (err) {
         console.error(err)
       }
     }
-    getComments()
+    getListItems()
   }, [id])
 
   return (

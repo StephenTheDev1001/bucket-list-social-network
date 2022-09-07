@@ -10,7 +10,6 @@ const UserAvatarLink = ({ userId }) => {
       try {
         const res = await axios.get(`/api/users/${userId}`)
         setUser(res.data)
-        console.log('render')
       } catch (err) {
         console.error(err)
       }

@@ -35,7 +35,7 @@ router.post(
     const { content, recipient } = req.body
 
     try {
-      r = await User.findById(recipient)
+      const r = await User.findById(recipient)
       const newComment = new Comment({
         content,
         user: req.user.id,
