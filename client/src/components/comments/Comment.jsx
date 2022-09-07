@@ -15,11 +15,15 @@ const Comment = ({ comment, onDelete }) => {
   }
 
   return (
-    <div className='flex'>
+    <div className='flex items-center'>
       <UserAvatarLink userId={comment && comment.user} />
       <p>{comment.content}</p>
       {authorizedToDelete() &&
-        <button onClick={onClick}>Delete</button>
+        <button
+          onClick={onClick}
+          className='bg-danger p-2 rounded-lg text-white h-1/3'
+        >
+          Delete</button>
       }
     </div >
   )

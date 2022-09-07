@@ -41,7 +41,6 @@ const CommentForm = ({ addComment, recipient }) => {
       >
 
       </textarea>
-      {/* tailwindcss styling button */}
       <input type="submit" className="bg-primary p-3" />
     </form>
   )
