@@ -15,7 +15,7 @@ const Comment = ({ comment, onDelete }) => {
   }
 
   return (
-    <div className='flex items-center'>
+    <div className='flex items-center p-3'>
       <UserAvatarLink userId={comment && comment.user} />
       <p>{comment.content}</p>
       {authorizedToDelete() &&
