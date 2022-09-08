@@ -32,7 +32,7 @@ const User = () => {
   }, [id])
 
   return (
-    <section className='flex flex-col items-center'>
+    <section className='flex flex-col items-center mt-2'>
 
       <UserAvatarLink userId={id} />
       <div>
