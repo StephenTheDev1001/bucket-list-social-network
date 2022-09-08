@@ -17,6 +17,8 @@ const ListItemSchema = new mongoose.Schema({
     type: Date,
     default: Date.now
   }
-})
+},
+  { timestamps: true }
+)
 
 module.exports = mongoose.model('ListItem', ListItemSchema)

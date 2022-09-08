@@ -21,7 +21,7 @@ const ListItemForm = () => {
   return (
     <form onSubmit={onSubmit} className='self-center'>
       <input type="text" placeholder='Before I die I want to..' onChange={onChange} value={content} maxLength='200' className='border border-black rounded-md p-2 m-1' />
-      <input type="submit" value='Add' className='border border-black rounded-md p-2 m-1' />
+      <input type="submit" value='Add' className='text-white bg-primary hover:bg-secondary rounded-md p-2 m-1' />
     </form>
   )
 }
