@@ -13,17 +13,23 @@ const Comment = ({ comment, onDelete }) => {
   const onClick = e => {
     onDelete(comment._id)
   }
-
+  const slicedDate = comment && comment.createdAt.slice(0, 10)
   return (
-    <div className='flex items-center p-3 border'>
+    <div className='flex p-3 border'>
       <UserAvatarLink userId={comment && comment.user} />
-      <p className="p-3">{comment.content}</p>
-      {authorizedToDelete() &&
+      <div className="flex flex-col justify-center items-start p-3">
+        <p className="text-center">{comment.content}</p>
+        <p className="text-center text-xs">Posted on {slicedDate}</p>
+      </div>
+
+      {
+        authorizedToDelete() &&
         <button
           onClick={onClick}
-          className='bg-danger p-2 rounded-lg text-white h-1/3 ml-auto'
+          className='bg-danger p-2 rounded-lg text-white h-1/3 ml-auto self-center'
         >
-          Delete</button>
+          Delete
+        </button>
       }
     </div >
   )
