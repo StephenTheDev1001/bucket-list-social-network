@@ -40,7 +40,7 @@ const Comments = ({ id }) => {
     }
   }
   return (
-    <div>
+    <div className="max-w-lg">
       <CommentForm addComment={addComment} recipient={id} />
       {comments.map(comment => {
         return <Comment key={comment && comment._id} comment={comment} onDelete={onDelete} />

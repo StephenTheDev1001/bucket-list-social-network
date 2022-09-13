@@ -13,13 +13,20 @@ const Comment = ({ comment, onDelete }) => {
   const onClick = e => {
     onDelete(comment._id)
   }
-  const slicedDate = comment && comment.createdAt.slice(0, 10)
+  const slicedDate = () => {
+    if (comment) {
+      return comment.date.slice(0, 10)
+    } else {
+      return null
+    }
+  }
   return (
     <div className='flex p-3 border'>
       <UserAvatarLink userId={comment && comment.user} />
       <div className="flex flex-col justify-center items-start p-3">
-        <p className="text-center">{comment.content}</p>
-        <p className="text-center text-xs">Posted on {slicedDate}</p>
+        <p className="">{comment.content}</p>
+        {slicedDate() && <p className="text-xs">Posted on {slicedDate()}</p>}
+
       </div>
 
       {

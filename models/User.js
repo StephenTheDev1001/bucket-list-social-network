@@ -17,10 +17,7 @@ const UserSchema = mongoose.Schema({
   image: {
     type: String,
   },
-  date: {
-    type: Date,
-    default: Date.now
-  }
+  favorites: [mongoose.Schema.Types.ObjectId],
 },
   { timestamps: true }
 );
