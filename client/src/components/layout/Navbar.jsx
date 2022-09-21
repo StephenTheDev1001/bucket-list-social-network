@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types'
-import { Link, Navigate } from 'react-router-dom'
-import setAuthToken from '../../utils/setAuthToken'
+import { Link } from 'react-router-dom'
 import { useAuth } from '../../context/auth/AuthState'
 import { logout } from '../../context/auth/authActions'
 import { clearListItems } from '../../context/listItem/listItemActions'
@@ -48,7 +47,7 @@ const Navbar = ({ title, icon }) => {
     <div className='flex justify-between bg-primary sm:text-3xl'>
       <h1>
         <Link to='/'>
-          <h1 className='p-3'>BucketList Babies</h1>
+          <h1 className='p-3'>BucketList Network</h1>
         </Link>
       </h1>
       <ul className='flex'>{isAuthenticated ? authLinks : guestLinks}</ul>

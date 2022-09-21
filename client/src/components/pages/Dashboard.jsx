@@ -1,6 +1,7 @@
 import ListItemForm from "../listItems/ListItemForm"
 import List from "../listItems/List"
 import MeetNew from "../meetNew/MeetNew"
+import DeleteAccountForm from "../editAccountInfo/DeleteAccountForm"
 
 const Dashboard = () => {
 
@@ -12,6 +13,7 @@ const Dashboard = () => {
           <List authenticated={true} />
         </div>
         <MeetNew />
+        <DeleteAccountForm />
       </div>
     </div>
   )
