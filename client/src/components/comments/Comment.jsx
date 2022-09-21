@@ -13,6 +13,7 @@ const Comment = ({ comment, onDelete }) => {
   const onClick = e => {
     onDelete(comment._id)
   }
+
   const slicedDate = () => {
     if (comment) {
       return comment.date.slice(0, 10)
