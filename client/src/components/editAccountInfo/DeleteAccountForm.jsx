@@ -36,14 +36,20 @@ const DeleteAccountForm = () => {
 
   return (
     <form>
-      <h1>Type DELETE ACCOUNT to delete the account.</h1>
+      <h1>Type DELETE ACCOUNT to delete this account.</h1>
       <input
         type="text"
         value={text}
         placeholder={placeholder}
         onChange={onChange}
+        className='border border-black rounded-md p-2 m-1'
       />
-      <button onClick={onClick}>Delete Account</button>
+      <button
+        onClick={onClick}
+        className='text-white bg-danger hover:bg-secondary rounded-md p-2 m-1'
+      >
+        Delete Account
+      </button>
     </form>
   )
 }
