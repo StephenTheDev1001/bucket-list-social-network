@@ -1,4 +1,3 @@
-import { useState } from "react"
 import { useListItem } from "../../context/listItem/ListItemState"
 import {
   deleteListItem,
@@ -7,7 +6,7 @@ import {
 
 const ListItem = ({ listItem, authenticated }) => {
 
-  const [listItemState, listItemDispatch] = useListItem()
+  const listItemDispatch = useListItem()[1]
 
   const { _id, content, completed } = listItem
 
@@ -35,7 +34,7 @@ const ListItem = ({ listItem, authenticated }) => {
       <div className="content">
         <h3 style={completionStyle} className='p-2'>{content}</h3>
       </div>
-      {authenticated && <button onClick={onDelete} className='text-white bg-danger hover:bg-secondary rounded-md p-2 m-1'>Delete</button>}
+      {authenticated && <button onClick={onDelete} className='ml-auto text-white bg-danger hover:bg-secondary rounded-md p-2 m-1'>Delete</button>}
     </li>
   )
 }

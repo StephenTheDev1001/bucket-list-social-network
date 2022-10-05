@@ -5,7 +5,7 @@ import { loadUser } from "../../context/auth/authActions"
 
 const EditNameForm = () => {
   const [authState, authDispatch] = useAuth()
-  const [currName, setCurrName] = useState('')
+  const [currName, setCurrName] = useState('Enter a new name')
   const [newName, setNewName] = useState("")
 
   useEffect(() => {
@@ -24,7 +24,7 @@ const EditNameForm = () => {
     // update user name in DB
     if (newName) {
       try {
-        await axios.put("/api/users/update", { newName })
+        await axios.put("/api/users/update", { name: newName })
         loadUser(authDispatch)
         setNewName('')
       } catch (err) {
@@ -33,8 +33,7 @@ const EditNameForm = () => {
     }
   }
   return (
-    <form className="m-3">
-      <h1>Edit your name</h1>
+    <form className="m-3 flex flex-col justify-between w-80">
       <input
         type="text"
         value={newName}

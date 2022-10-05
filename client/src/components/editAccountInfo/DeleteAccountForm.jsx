@@ -17,7 +17,7 @@ const DeleteAccountForm = () => {
   // onClick handler for the delete button
   const onClick = async (e) => {
     e.preventDefault()
-    if (text == 'DELETE ACCOUNT') {
+    if (text === 'DELETE ACCOUNT') {
       console.log('delete account')
       // delete user from DB
       try {
@@ -35,8 +35,8 @@ const DeleteAccountForm = () => {
   let placeholder = 'DELETE ACCOUNT'
 
   return (
-    <form>
-      <h1>Type DELETE ACCOUNT to delete this account.</h1>
+    <form className="m-3 flex flex-col justify-between w-80">
+      <h1 className="text-sm">Type DELETE ACCOUNT to delete this account.</h1>
       <input
         type="text"
         value={text}

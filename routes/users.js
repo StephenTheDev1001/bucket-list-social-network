@@ -133,7 +133,7 @@ router.put(
     try {
       const x = await User.findByIdAndUpdate(req.user.id, req.body)
       const updatedUser = await User.findById(req.user.id)
-      res.send(updatedUser)
+      res.send(updatedUser.name)
     } catch (err) {
       console.error(err.message)
       res.status(500).send('Server Error')
