@@ -123,4 +123,21 @@ router.delete(
   }
 )
 
+// @route     PUT api/users/update
+// @desc      update user by id
+// @access    Private
+router.put(
+  '/update',
+  auth,
+  async (req, res) => {
+    try {
+      const x = await User.findByIdAndUpdate(req.user.id, req.body)
+      const updatedUser = await User.findById(req.user.id)
+      res.send(updatedUser)
+    } catch (err) {
+      console.error(err.message)
+      res.status(500).send('Server Error')
+    }
+  }
+)
 module.exports = router;
