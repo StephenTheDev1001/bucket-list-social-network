@@ -4,6 +4,7 @@ import { useAuth } from '../../context/auth/AuthState'
 import { logout } from '../../context/auth/authActions'
 import { clearListItems } from '../../context/listItem/listItemActions'
 import { useListItem } from '../../context/listItem/ListItemState'
+import DemoLogin from '../auth/DemoLogin'
 
 const Navbar = ({ title, icon }) => {
   // Auth State
@@ -17,7 +18,6 @@ const Navbar = ({ title, icon }) => {
     logout(authDispatch)
     clearListItems(listItemDispatch)
   }
-  const linkSyles = 'p-3 hover:bg-secondary hover:text-white'
 
   const authLinks = (
     <div className='flex pr-3'>
@@ -39,6 +39,9 @@ const Navbar = ({ title, icon }) => {
       </li>
       <li className={linkSyles}>
         <Link to='/login'>Login</Link>
+      </li>
+      <li className={linkSyles}>
+        <DemoLogin />
       </li>
     </div>
   )
@@ -64,5 +67,8 @@ Navbar.propTypes = {
 Navbar.defaultProps = {
   title: 'BucketList Network'
 }
+
+// link Styles
+const linkSyles = 'p-3 hover:bg-secondary hover:text-white'
 
 export default Navbar

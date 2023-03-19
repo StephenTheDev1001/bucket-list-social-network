@@ -19,6 +19,8 @@ const Login = () => {
 
   const onChange = (e) => setUser({ ...user, [e.target.name]: e.target.value })
 
+
+  // Event Click submit
   const onSubmit = (e) => {
     e.preventDefault()
     if (email === '' || password === '') {
@@ -32,9 +34,23 @@ const Login = () => {
     }
   };
 
+  // onclick for demo button
+  const demoOnClick = (e) => {
+    setUser({
+      email: 'demo@gmail.com',
+      password: 'demo1001'
+    })
+
+    onSubmit();
+  }
+
   if (isAuthenticated) { return <Navigate to="/" /> }
   return (
     <div className='form-container flex flex-col justify-center h-screen items-center'>
+
+      <form onSubmit={onSubmit}>
+        <h2>Click Demo-Login on the top-right of the page to login to a demo account</h2>
+      </form>
       <h1 className='text-3xl'>
         Account <span className='text-primary'>Login</span>
       </h1>
