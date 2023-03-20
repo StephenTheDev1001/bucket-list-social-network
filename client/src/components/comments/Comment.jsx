@@ -1,5 +1,6 @@
 import UserAvatarLink from "../layout/UserAvatarLink"
 import { useAuth } from "../../context/auth/AuthState"
+import { format } from 'date-fns'
 
 const Comment = ({ comment, onDelete }) => {
   // auth context
@@ -15,17 +16,19 @@ const Comment = ({ comment, onDelete }) => {
   }
 
   const slicedDate = () => {
-    if (comment) {
-      return comment.date.slice(0, 10)
-    } else {
-      return null
-    }
+    // if (comment) {
+    //   return comment.date.slice(0, 10)
+    // } else {
+    //   return null
+    // }
+    console.log(typeof comment.createdAt);
+    return comment.createdAt ? new Date(comment.createdAt).toDateString() : null
   }
   return (
     <div className='flex p-3 border'>
       <UserAvatarLink userId={comment && comment.user} />
       <div className="flex flex-col justify-center items-start p-3">
-        <p className="">{comment.content}</p>
+        {comment ? <p className="">{comment.content}</p> : null}
         {slicedDate() && <p className="text-xs">Posted on {slicedDate()}</p>}
 
       </div>
