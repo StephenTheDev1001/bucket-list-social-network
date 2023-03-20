@@ -16,12 +16,6 @@ const Comment = ({ comment, onDelete }) => {
   }
 
   const slicedDate = () => {
-    // if (comment) {
-    //   return comment.date.slice(0, 10)
-    // } else {
-    //   return null
-    // }
-    console.log(typeof comment.createdAt);
     return comment.createdAt ? new Date(comment.createdAt).toDateString() : null
   }
   return (
