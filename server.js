@@ -1,7 +1,7 @@
 const express = require('express')
 const connectDB = require('./config/db')
 const path = require('path')
-
+require('dotenv');
 const app = express()
 
 // Connect to MongoDB
@@ -21,7 +21,7 @@ if (process.env.NODE_ENV === 'production') {
   // Set static folder
   app.use(express.static('client/build'))
 
-  app.get('*', (req, res) => {
+  app.get('/*', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
   })
 }
