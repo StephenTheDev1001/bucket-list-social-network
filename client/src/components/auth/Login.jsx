@@ -1,7 +1,7 @@
-import { useState, useContext, useEffect } from 'react'
+import { useState } from 'react'
 import { Navigate } from 'react-router-dom'
 import { useAuth } from '../../context/auth/AuthState'
-import { clearErrors, login } from '../../context/auth/authActions'
+import { login } from '../../context/auth/authActions'
 
 const Login = () => {
 
