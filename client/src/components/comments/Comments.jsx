@@ -1,6 +1,5 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
-import { useAuth } from "../../context/auth/AuthState"
 import Comment from "./Comment"
 import CommentForm from "./CommentForm"
 

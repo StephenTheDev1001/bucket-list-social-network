@@ -9,7 +9,7 @@ import DemoLogin from '../auth/DemoLogin'
 const Navbar = ({ title, icon }) => {
   // Auth State
   const [authState, authDispatch] = useAuth()
-  const { isAuthenticated, user } = authState
+  const { isAuthenticated } = authState
 
   // List Item State
   const listItemDispatch = useListItem()[1]
@@ -47,7 +47,7 @@ const Navbar = ({ title, icon }) => {
   )
 
   return (
-    <div className='flex justify-between bg-primary sm:text-3xl'>
+    <div className='flex justify-between bg-primary md:text-3xl'>
       <h1>
         <Link to='/'>
           <h1 className='p-3'>BucketList Network</h1>
