@@ -1,33 +1,11 @@
-const express = require('express')
-const connectDB = require('./config/db')
-const path = require('path')
-require('dotenv');
-const app = express()
-
-// Connect to MongoDB
-connectDB()
-
-// init middleware
-app.use(express.json({ extended: false }))
-
-// Define Routes
-app.use('/api/users', require('./routes/users'))
-app.use('/api/auth', require('./routes/auth'))
-app.use('/api/listItems', require('./routes/listItems'))
-app.use('/api/comments', require('./routes/comments'))
-
-// Serve static assets in production
-if (process.env.NODE_ENV === 'production') {
-  // Set static folder
-  app.use(express.static('client/build'))
-
-  app.get('/*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
-  })
-}
-
-const PORT = process.env.PORT || 5000
-
-app.listen(PORT, () => {
-  console.log(`Server started on port ${PORT}`)
-})
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = __importDefault(require("express"));
+//import path from 'path';
+// initialize app
+const app = (0, express_1.default)();
+const PORT = Number(process.env.PORT) || 5000;
+app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
