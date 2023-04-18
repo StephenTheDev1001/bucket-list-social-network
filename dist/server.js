@@ -1,8 +1,9 @@
 import express from 'express';
-// import connectDB from './config/db';
-import connectDB from './config/db';
-// import path = require('path');
+import connectDB from './config/connectDB.js';
+import path from 'path';
 import dotenv from 'dotenv';
+// initialize app
+const app = express();
 // load env vars
 dotenv.config();
 // Connect to MongoDB
@@ -10,10 +11,10 @@ connectDB();
 // init middleware
 app.use(express.json({ extended: false }));
 // Define Routes
-app.use('/api/users', require('./routes/users'));
-app.use('/api/auth', require('./routes/auth'));
-app.use('/api/listItems', require('./routes/listItems'));
-app.use('/api/comments', require('./routes/comments'));
+// app.use('/api/users', require('./routes/users'))
+// app.use('/api/auth', require('./routes/auth'))
+// app.use('/api/listItems', require('./routes/listItems'))
+// app.use('/api/comments', require('./routes/comments'))
 // Serve static assets in production
 if (process.env.NODE_ENV === 'production') {
     // Set static folder

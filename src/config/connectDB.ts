@@ -1,9 +1,12 @@
 import mongoose, { ConnectOptions } from 'mongoose';
+import dotenv from 'dotenv';
 
-const mongoURI: string = process.env.MONGO_URI || '';
+dotenv.config();
+
+const mongoURI: string = process.env.MONGO_URI;
 
 const options: Partial<ConnectOptions> = {
-    //connect options
+
 };
 
 const connectDB = async (): Promise<void> => {
@@ -16,4 +19,3 @@ const connectDB = async (): Promise<void> => {
 };
 
 export default connectDB;
-
