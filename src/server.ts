@@ -1,4 +1,3 @@
-import fs from 'fs';
 import express from 'express';
 import connectDB from './config/connectDB.js';
 import path from 'path';
@@ -18,7 +17,7 @@ app.use(express.json({ extended: false }))
 
 // Define Routes
 // app.use('/api/users', require('./routes/users'))
-// app.use('/api/auth', require('./routes/auth'))
+app.use('/api/auth', require('./routes/auth.js'))
 // app.use('/api/listItems', require('./routes/listItems'))
 // app.use('/api/comments', require('./routes/comments'))
 
